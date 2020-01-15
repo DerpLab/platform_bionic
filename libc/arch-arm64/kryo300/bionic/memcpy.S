@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The Android Open Source Project
+ * Copyright (C) 2008 The Android Open Source Project
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,5 +25,11 @@
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  */
-#define BUILD_STPCPY
-#include "strcpy.S"
+
+// Prototype: void *memcpy (void *dst, const void *src, size_t count).
+
+#include <private/bionic_asm.h>
+
+ENTRY(memcpy)
+  #include "memcpy_base.S"
+END(memcpy)
